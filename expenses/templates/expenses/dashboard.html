@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+
+<h2>My Expenses</h2>
+
+<a href="{% url 'add_expense' %}">
+    <button>Add Expense</button>
+</a>
+
+<br><br>
+
+<p><strong>Total:</strong> ₹ {{ total }}</p>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for expense in expenses %}
+    <tr>
+        <td>{{ expense.amount }}</td>
+        <td>{{ expense.category.name }}</td>
+        <td>{{ expense.date }}</td>
+        <td>{{ expense.description }}</td>
+        <td>
+            <a href="{% url 'edit_expense' expense.id %}">Edit</a> |
+            <a href="{% url 'delete_expense' expense.id %}" onclick="return confirm('Are you sure?');">Delete</a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="5">No expenses added yet</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+
+<a href="{% url 'logout' %}">Logout</a>
+
+</body>
+</html>
+
+
+
+ 
