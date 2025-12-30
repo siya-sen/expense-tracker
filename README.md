@@ -11,9 +11,6 @@ A simple **Expense Tracker** web application built with **Django** that allows u
 - **Category Management**: Select predefined categories for expenses.  
 - **User Authentication**: Login/logout support for secure access (optional if added).  
 
-## Screenshots
-
-*(Optional: Add screenshots of your dashboard and add/edit forms here)*
 
 ## Tech Stack
 
